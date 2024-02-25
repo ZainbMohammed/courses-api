@@ -1,52 +1,43 @@
 const express = require('express');
 const router = express.Router();
 const controllers = require('../controllers/courses.controller')
+const {validationSchema} = require('../moddlewares/valisationSchemea')
 const {body} = require('express-validator')
 
 
-// Get All Courses
-router.get('/',controllers.getAllCources)
+// // Get All Courses
+// router.get('/',controllers.getAllCources)
 
-// Get specific  Course
-router.get('/:id',controllers.getSpecificCourse)
+// // Get specific  Course
+// router.get('/:id',controllers.getSpecificCourse)
 
-// Add Nwe Course
-router.post('/',
-[
-    body('title')
-    .notEmpty()
-    .withMessage('title is required')
-    .isLength({min:2})
-    .withMessage('title at least is 2 digits'),
+// // Add Nwe Course
+// router.post('/',
+// [
+//     body('title')
+//     .notEmpty()
+//     .withMessage('title is required')
+//     .isLength({min:2})
+//     .withMessage('title at least is 2 digits'),
 
-    body('price')
-    .notEmpty()
-    .withMessage('price is required')
-],
-controllers.addNewCourse)
+//     body('price')
+//     .notEmpty()
+//     .withMessage('price is required')
+// ],
+// controllers.addNewCourse)
 
-// Update Specific Course
-router.patch('/:id',controllers.updateCourse)
+// // Update Specific Course
+// router.patch('/:id',controllers.updateCourse)
 
-// Delete Specific Course
-router.delete('/:id',controllers.deleteCourse)
+// // Delete Specific Course
+// router.delete('/:id',controllers.deleteCourse)
 
 
 
 router.route('/')
         .get(controllers.getAllCources)
         .post(
-            [
-                body('title')
-                .notEmpty()
-                .withMessage('title is required')
-                .isLength({min:2})
-                .withMessage('title at least is 2 digits'),
-                
-                body('price')
-                .notEmpty()
-                .withMessage('price is required')
-            ],
+            validationSchema(),
             controllers.addNewCourse
         )
 
