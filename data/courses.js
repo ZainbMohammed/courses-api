@@ -10,8 +10,6 @@ let courses = [
         price:800
     }
 ]
-
-
 module.exports = {
     courses
 }
