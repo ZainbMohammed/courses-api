@@ -5,7 +5,6 @@ const httpStatusText = require('../utils/httpStatusText')
 
 /*
 find({queryFilter},{projection})
-
 */
 const getAllCources = async (req,res)=>{
     // get all courses from mongodb using Course model
