@@ -3,11 +3,13 @@ const express = require('express');
 var cors = require('cors')
 const app = express();
 const mongoose = require('mongoose');
-const coursesRouter = require('./routers/courses.routers')
-const httpStatusText = require('./utils/httpStatusText')
-app.use(cors()) // to solve cors policy 'Cross Origin Resourse Sharing'
-app.use(express.json())
-app.use('/api/courses',coursesRouter)
+const coursesRouter = require('./routers/courses.routers');
+const usersRouter = require('./routers/users.routers');
+const httpStatusText = require('./utils/httpStatusText');
+app.use(cors()); // to solve cors policy 'Cross Origin Resourse Sharing'
+app.use(express.json());
+app.use('/api/courses',coursesRouter);
+app.use('/api/users',usersRouter);
 
 
 const connectDB = async () => {
