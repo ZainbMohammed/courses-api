@@ -16,7 +16,7 @@ const connectDB = async () => {
     try {
       // Connect to the MongoDB cluster
       await mongoose.connect(process.env.mongoAtlasUri);
-      console.log(" ===Mongoose is connected");
+      console.log(" === Mongoose is connected ===");
     } catch (e) {
       console.log("could not connect");
     }

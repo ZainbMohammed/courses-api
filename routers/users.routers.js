@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const userControllers = require('../controllers/users.controller')
-const {validationSchema} = require('../moddlewares/valisationSchemea')
+const userControllers = require('../controllers/users.controller');
+const verifyToken = require('../moddlewares/verifyToken');
+const {validationSchema} = require('../moddlewares/valisationSchemea');
 const {body} = require('express-validator')
 
 
@@ -11,7 +12,7 @@ const {body} = require('express-validator')
 
 // login
 router.route('/')
-        .get(userControllers.getAllUsers)
+        .get(verifyToken,userControllers.getAllUsers)
         
 router.route('/register')
         .post(userControllers.register)
