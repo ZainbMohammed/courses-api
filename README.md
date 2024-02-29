@@ -1,3 +1,14 @@
 test api using postman sw
 
-![Get all courses](postman.png)
+Login
+
+![login](login.png)
+
+Get All Users
+
+![login](getAllUsers.png)
+
+Get All Courses
+
+![login](getAllCourses.png)
+
